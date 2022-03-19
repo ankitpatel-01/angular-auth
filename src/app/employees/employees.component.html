@@ -1,0 +1,8 @@
+<div class="container mt-3">
+    <h1>Employees</h1>
+    <div *ngFor="let dept of depts">
+        <h2>{{dept.name}}</h2>
+        <h5>department id : {{dept.id}}</h5>
+        <app-emp-card-holder [emps]="dept.emps"></app-emp-card-holder>
+    </div>
+</div>

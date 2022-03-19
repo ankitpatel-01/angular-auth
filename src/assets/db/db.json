@@ -1,0 +1,93 @@
+{
+  "department": [
+    {
+      "id": 1,
+      "name": "frontend",
+      "emps": [
+        {
+          "id": 1,
+          "name": "ankit patel",
+          "age": 21,
+          "gender": "male",
+          "hobbies": ["chess", "anime", "vollyball"]
+        },
+        {
+          "id": 2,
+          "name": "aman patel",
+          "age": 21,
+          "gender": "male",
+          "hobbies": ["chess", "anime", "vollyball"]
+        },
+        {
+          "id": 3,
+          "name": "abhishek patel",
+          "age": 21,
+          "gender": "male",
+          "hobbies": ["chess", "anime", "vollyball"]
+        },
+        {
+          "id": 4,
+          "name": "aayushi parmar",
+          "age": 21,
+          "gender": "female",
+          "hobbies": ["chess", "anime", "vollyball"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": ".net",
+      "emps": [
+        {
+          "id": 1,
+          "name": "ankit patel",
+          "age": 21,
+          "gender": "male",
+          "hobbies": ["chess", "anime", "vollyball"]
+        },
+        {
+          "id": 2,
+          "name": "aman patel",
+          "age": 21,
+          "gender": "male",
+          "hobbies": ["chess", "anime", "vollyball"]
+        },
+        {
+          "id": 3,
+          "name": "abhishek patel",
+          "age": 21,
+          "gender": "male",
+          "hobbies": ["chess", "anime", "vollyball"]
+        },
+        {
+          "id": 4,
+          "name": "aayushi parmar",
+          "age": 21,
+          "gender": "female",
+          "hobbies": ["chess", "anime", "vollyball"]
+        },
+        {
+          "id": 5,
+          "name": "aayushi parmar",
+          "age": 21,
+          "gender": "female",
+          "hobbies": ["chess", "anime", "vollyball"]
+        },
+        {
+          "id": 6,
+          "name": "aayushi parmar",
+          "age": 21,
+          "gender": "female",
+          "hobbies": ["chess", "anime", "vollyball"]
+        },
+        {
+          "id": 7,
+          "name": "aayushi parmar",
+          "age": 21,
+          "gender": "female",
+          "hobbies": ["chess", "anime", "vollyball"]
+        }
+      ]
+    }
+  ]
+}

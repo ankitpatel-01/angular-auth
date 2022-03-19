@@ -1,0 +1,14 @@
+html,
+body {
+  height: 100%;
+}
+
+.overflow-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.overflow-y {
+  overflow-x: hidden;
+  overflow-y: auto;
+}

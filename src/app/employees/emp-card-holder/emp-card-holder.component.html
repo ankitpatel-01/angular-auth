@@ -1,0 +1,18 @@
+<div class="container d-flex overflow-x">
+    <div *ngFor="let emp of emps">
+        <div class="card m-2">
+            <div class="card-body">
+                <h5 class="card-title">{{emp.name}}</h5>
+                <p class="card-text">Age: {{emp.age}}</p>
+                <p class="card-text">Gender: {{emp.gender}}</p>
+                <div class="card-text">Hobbies:
+                    <ul>
+                        <li *ngFor="let hobby of emp.hobbies">
+                            {{hobby}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

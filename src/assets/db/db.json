@@ -9,28 +9,44 @@
           "name": "ankit patel",
           "age": 21,
           "gender": "male",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 2,
           "name": "aman patel",
           "age": 21,
           "gender": "male",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 3,
           "name": "abhishek patel",
           "age": 21,
           "gender": "male",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 4,
           "name": "aayushi parmar",
           "age": 21,
           "gender": "female",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         }
       ]
     },
@@ -43,51 +59,117 @@
           "name": "ankit patel",
           "age": 21,
           "gender": "male",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 2,
           "name": "aman patel",
           "age": 21,
           "gender": "male",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 3,
           "name": "abhishek patel",
           "age": 21,
           "gender": "male",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 4,
           "name": "aayushi parmar",
           "age": 21,
           "gender": "female",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 5,
           "name": "aayushi parmar",
           "age": 21,
           "gender": "female",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 6,
           "name": "aayushi parmar",
           "age": 21,
           "gender": "female",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 7,
           "name": "aayushi parmar",
           "age": 21,
           "gender": "female",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         }
       ]
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "name": "aman patel",
+      "age": 21,
+      "gender": "male"
+    },
+    {
+      "id": 2,
+      "name": "aman patel",
+      "age": 21,
+      "gender": "male"
+    },
+    {
+      "id": 3,
+      "name": "aman patel",
+      "age": 21,
+      "gender": "male"
+    },
+    {
+      "id": 4,
+      "name": "aman patel",
+      "age": 21,
+      "gender": "male"
+    },
+    {
+      "name": "Ankit Patel",
+      "age": "66",
+      "gender": "Male",
+      "id": 5
+    },
+    {
+      "name": "vgfg",
+      "age": "dfdgf",
+      "gender": "Male",
+      "id": 6
     }
   ]
 }

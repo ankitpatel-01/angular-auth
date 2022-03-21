@@ -19,13 +19,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.currentUser$.subscribe({
-      next: (user) => {
-        this.currentUser = user
+      next:(res)=>{
+        this.currentUser = res;
       },
-      error: (e) => {
-        console.log(e);
-      }
-    })
+      error:(e)=>{console.log(e)}
+    });
   }
 
   logout() {

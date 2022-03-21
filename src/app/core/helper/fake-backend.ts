@@ -38,13 +38,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             const { username, password } = body;
             const user = users.find(x => x.username === username && x.password === password);
             if (!user) return error('Username or password is incorrect');
-            return ok({
-                id: user.id,
-                username: user.username,
-                firstName: user.firstName,
-                lastName: user.lastName,
-                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdE5hbWUiOiJUZXN0IiwibGFzdE5hbWUiOiJVc2VyIn0.RDCSpa_NXoInukn8f7sBe8GSsIVnRE-858bvdh5ZC1s'
-            })
+            return ok(
+                {
+                    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiYWRtaW4iLCJmaXJzdE5hbWUiOiJUZXN0IiwibGFzdE5hbWUiOiJVc2VyIn0.RDCSpa_NXoInukn8f7sBe8GSsIVnRE-858bvdh5ZC1s'
+                }
+            )
         }
 
         function getUsers() {

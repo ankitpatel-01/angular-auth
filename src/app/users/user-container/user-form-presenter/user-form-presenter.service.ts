@@ -14,7 +14,7 @@ export class UserFormPresenterService {
 
   constructor(
     private fb: FormBuilder
-  ) { 
+  ) {
     this.userFormData = new Subject();
     this.userFormData$ = new Observable();
 
@@ -29,11 +29,10 @@ export class UserFormPresenterService {
     })
   }
 
-  public onFormSubmit(form: FormGroup) {
-    if (!form.valid) {
+  public onFormSubmit(formData: FormGroup) {
+    if (!formData.valid) {
       return;
     }
-
-    this.userFormData.next(form.value);
+    this.userFormData.next(formData.value);
   }
 }

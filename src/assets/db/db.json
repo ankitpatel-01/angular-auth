@@ -136,24 +136,6 @@
   ],
   "user": [
     {
-      "id": 1,
-      "name": "aman patel",
-      "age": 21,
-      "gender": "male"
-    },
-    {
-      "id": 2,
-      "name": "aman patel",
-      "age": 21,
-      "gender": "male"
-    },
-    {
-      "id": 3,
-      "name": "aman patel",
-      "age": 21,
-      "gender": "male"
-    },
-    {
       "id": 4,
       "name": "aman patel",
       "age": 21,
@@ -170,6 +152,24 @@
       "age": "dfdgf",
       "gender": "Male",
       "id": 6
+    },
+    {
+      "name": "bb",
+      "age": "bb",
+      "gender": "Male",
+      "id": 7
+    },
+    {
+      "name": "dfdf",
+      "age": "dfdee",
+      "gender": "Male",
+      "id": 8
+    },
+    {
+      "name": "fdd",
+      "age": "dd",
+      "gender": "Male",
+      "id": 9
     }
   ]
 }

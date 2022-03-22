@@ -11,8 +11,8 @@ import { UserListPresenterService } from '../user-list-presenter/user-list-prese
   selector: 'app-user-list-presentation',
   templateUrl: './user-list-presentation.component.html',
   styleUrls: ['./user-list-presentation.component.scss'],
-  viewProviders:[UserListPresenterService],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  viewProviders: [UserListPresenterService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserListPresentationComponent implements OnInit {
 
@@ -33,9 +33,9 @@ export class UserListPresentationComponent implements OnInit {
   /** emitter to emit edit user details */
   @Output() public editUser: EventEmitter<User>;
 
- 
+
   /** user id */
-  public userId!: number;
+  private _userId: number;
   /** search field control object */
   public search: FormControl;
 
@@ -47,9 +47,9 @@ export class UserListPresentationComponent implements OnInit {
     private overlay: Overlay
   ) {
     this._userList = [];
-    this.delete = new EventEmitter();
-    this.addUser = new EventEmitter();
-    this.editUser = new EventEmitter();
+    this.delete = new EventEmitter<number>();
+    this.addUser = new EventEmitter<User>();
+    this.editUser = new EventEmitter<User>();
     this.search = new FormControl();
   }
 
@@ -57,16 +57,7 @@ export class UserListPresentationComponent implements OnInit {
     this.userListPresenterService.delete$.subscribe((id: number) => {
       this.delete.emit(id);
     })
-
-    // this.search.valueChanges.pipe(takeUntil(this.destroy)).subscribe((searchTerm) => {
-    //   this.searchUser(searchTerm);
-    // })
   }
-
-  /** search user by search term */
-  // public searchUser(searchTerm: string): void{
-  //   this.tempUserList = this.userListPresenterService.getFilteredList(this._userList, searchTerm.toLowerCase().trim());
-  // }
 
   /** on delete button click */
   public onDelete(id: number) {
@@ -80,6 +71,7 @@ export class UserListPresentationComponent implements OnInit {
 
   /** on edit button click */
   public onEdit(item: User) {
+    this._userId = item.id;
     this.openUserForm(item);
   }
 
@@ -88,20 +80,19 @@ export class UserListPresentationComponent implements OnInit {
    * @param userData user data - Optional
    */
   public openUserForm(userData?: User) {
-    let componentRef: ComponentRef<UserFormPresentationComponent>;
-    let overlayRef: OverlayRef;
-    // set overlay config
-    let overlayConfig: OverlayConfig = new OverlayConfig();
-    overlayConfig.hasBackdrop = true;
-    // create overlay reference
-    overlayRef = this.overlay.create(overlayConfig);
-    const portal: ComponentPortal<UserFormPresentationComponent> = new ComponentPortal<UserFormPresentationComponent>(UserFormPresentationComponent);
-    // attach overlay with portal
-    componentRef = overlayRef.attach(portal);
-    // listen to backdrop click
+    //config of overlay
+    let config = new OverlayConfig();
+    config.hasBackdrop = true;
+    config.positionStrategy = this.overlay.position().global().centerHorizontally().right();
+
+    const overlayRef = this.overlay.create(config);
+
+    const component = new ComponentPortal(UserFormPresentationComponent);
+    const componentRef = overlayRef.attach(component);
+
     overlayRef.backdropClick().subscribe(() => {
-        overlayRef.detach();
-      });
+      overlayRef.detach();
+    });
 
     // pass user data as input
     componentRef.instance.userData = userData as User;
@@ -112,12 +103,11 @@ export class UserListPresentationComponent implements OnInit {
     // listen to add user event
     componentRef.instance.add.subscribe((res: User) => {
       this.addUser.emit(res);
-      overlayRef.detach();
     })
     // listen to edit user event
     componentRef.instance.edit.subscribe((res: User) => {
+      res.id = this._userId;
       this.editUser.emit(res);
-      overlayRef.detach();
     })
   }
 }

@@ -6,7 +6,8 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-user-container',
   templateUrl: './user-container.component.html',
-  styleUrls: ['./user-container.component.scss']
+  styleUrls: ['./user-container.component.scss'],
+
 })
 export class UserContainerComponent implements OnInit {
 
@@ -27,7 +28,9 @@ export class UserContainerComponent implements OnInit {
     this.userService.deleteUser(id).subscribe({
       next: (res) => {
         alert('User Deleted Successfully');
-      }
+        this.userList$ = this.userService.getUsers();
+      },
+      error:(e)=>{console.log(e)}
     })
   }
 
@@ -36,8 +39,8 @@ export class UserContainerComponent implements OnInit {
       next: (res) => {
         alert('User Added Successfully')
         this.userList$ = this.userService.getUsers();
-
-      }
+      },
+      error:(e)=>{console.log(e)}
     })
   }
 
@@ -46,8 +49,8 @@ export class UserContainerComponent implements OnInit {
       next: (res) => {
         alert('User Edited Successfully')
         this.userList$ = this.userService.getUsers();
-
-      }
+      },
+      error:(e)=>{console.log(e)}
     })
   }
 }

@@ -24,7 +24,7 @@ export class AuthService {
     this._isLoggedIn = new BehaviorSubject<boolean>(localStorage.getItem('token') ? true : false);
     this.isLoggedIn$ = this._isLoggedIn.asObservable();
 
-    this._currentUser = new BehaviorSubject<User>(this.decodeToken(localStorage.getItem('token')!)!);
+    this._currentUser = new BehaviorSubject<User>(this.decodeToken(localStorage.getItem('token')!));
     this.currentUser$ = this._currentUser.asObservable();
   }
 
@@ -32,13 +32,17 @@ export class AuthService {
     return this._isLoggedIn.value;
   }
 
+  public getToken() {
+    return localStorage.getItem('token')!;
+  }
+
   public login(username: string, password: string): Observable<User> {
     return this.http.post<User>(`${this.apiUrl}/users/authenticate`, { username, password })
       .pipe(map(res => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('token', JSON.stringify(res.token));
+        localStorage.setItem('token', res.token!);
         this._isLoggedIn.next(true);
-        this._currentUser.next(this.decodeToken(localStorage.getItem('token')!)!);
+        this._currentUser.next(this.decodeToken(localStorage.getItem('token')!));
         return res;
       }));
   }
@@ -47,10 +51,10 @@ export class AuthService {
     // remove user from local storage to log user out
     localStorage.removeItem('token');
     this._isLoggedIn.next(false);
-    this._currentUser.next(this.decodeToken(localStorage.getItem('token')!)!)
+    this._currentUser.next(this.decodeToken(localStorage.getItem('token')!))
   }
 
-  decodeToken(token: string): User | null {
+  decodeToken(token: string) {
     if (localStorage.getItem('token') !== null) {
       return JSON.parse(atob(token.split('.')[1]));
     } else {

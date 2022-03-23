@@ -2,7 +2,7 @@ import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { ChangeDetectionStrategy, Component, ComponentRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Subject } from 'rxjs/internal/Subject';
+import { Observable } from 'rxjs';
 import { User } from '../../model/user.model';
 import { UserFormPresentationComponent } from '../user-form-presentation/user-form-presentation.component';
 import { UserListPresenterService } from '../user-list-presenter/user-list-presenter.service';
@@ -38,22 +38,28 @@ export class UserListPresentationComponent implements OnInit {
   private _userId: number;
   /** search field control object */
   public search: FormControl;
+  public age: FormControl;
 
   private _userList: User[];
 
+  public pageOfItems: User[];
 
   constructor(
     private userListPresenterService: UserListPresenterService,
     private overlay: Overlay
   ) {
     this._userList = [];
+    this.pageOfItems = [];
     this.delete = new EventEmitter<number>();
     this.addUser = new EventEmitter<User>();
     this.editUser = new EventEmitter<User>();
     this.search = new FormControl();
+    this.age = new FormControl();
   }
 
   ngOnInit(): void {
+    console.log(this._userList);
+    console.log(this.pageOfItems)
     this.userListPresenterService.delete$.subscribe((id: number) => {
       this.delete.emit(id);
     })
@@ -109,5 +115,10 @@ export class UserListPresentationComponent implements OnInit {
       res.id = this._userId;
       this.editUser.emit(res);
     })
+  }
+
+  onChangePage(pageOfItems: Array<any>) {
+    // update current page of items
+    this.pageOfItems = pageOfItems;
   }
 }

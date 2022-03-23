@@ -11,6 +11,7 @@ import { UserContainerComponent } from './user-container/user-container.componen
 import { UserListPresentationComponent } from './user-container/user-list-presentation/user-list-presentation.component';
 import { UserFormPresentationComponent } from './user-container/user-form-presentation/user-form-presentation.component';
 import { HTTPINTERCEPTOR } from '../core/services/httpintercepter.interceptor';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { HTTPINTERCEPTOR } from '../core/services/httpintercepter.interceptor';
     ReactiveFormsModule,
     UsersRoutingModule,
     OverlayModule,
+    SharedModule
   ],
   providers: [
     {

@@ -2,11 +2,11 @@
   "department": [
     {
       "id": 1,
-      "name": "frontend",
+      "name": "FrontEnd",
       "emps": [
         {
           "id": 1,
-          "name": "ankit patel",
+          "name": "Ankit patel",
           "age": 21,
           "gender": "male",
           "hobbies": [
@@ -17,13 +17,13 @@
         },
         {
           "id": 2,
-          "name": "aman patel",
+          "name": "Aman patel",
           "age": 21,
           "gender": "male",
           "hobbies": [
             "chess",
             "anime",
-            "vollyball"
+            "tennies"
           ]
         },
         {
@@ -34,7 +34,7 @@
           "hobbies": [
             "chess",
             "anime",
-            "vollyball"
+            "cube"
           ]
         },
         {
@@ -47,6 +47,16 @@
             "anime",
             "vollyball"
           ]
+        },
+        {
+          "id": 5,
+          "name": "Ritu Malviya",
+          "age": 21,
+          "gender": "female",
+          "hobbies": [
+            "dance",
+            "art"
+          ]
         }
       ]
     },
@@ -56,8 +66,8 @@
       "emps": [
         {
           "id": 1,
-          "name": "ankit patel",
-          "age": 21,
+          "name": "jay patel",
+          "age": 26,
           "gender": "male",
           "hobbies": [
             "chess",

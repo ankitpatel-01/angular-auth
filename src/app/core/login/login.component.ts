@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
     }
 
     this.authService.login(this.loginForm.controls['username'].value, this.loginForm.controls['password'].value)
-      .pipe(first())
       .subscribe({
         next: (res) => {
           this.router.navigate(['/dashboard']);

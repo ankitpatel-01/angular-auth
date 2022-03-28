@@ -25,22 +25,23 @@ export class HTTPINTERCEPTOR implements HttpInterceptor {
         setHeaders: { Authorization: `Authorization token ${token}` }
       });
     }
-    return next.handle(request).pipe(
-      // map(res => {
-      //   console.log("Passed through the interceptor in response");
-      //   return res
-      // }),
-      catchError((err) => {
-        if (err instanceof HttpErrorResponse) {
-          if (err.status === 200) {
-            console.log("status 200 ok")
-          }
-          if (err.status === 404) {
-            console.log("status 404 not found")
-          }
-        }
-        return throwError(err);
-      }),
-    );
+    return next.handle(request);
+    // return next.handle(request).pipe(
+    //   // map(res => {
+    //   //   console.log("Passed through the interceptor in response");
+    //   //   return res
+    //   // }),
+    //   catchError((err) => {
+    //     if (err instanceof HttpErrorResponse) {
+    //       if (err.status === 200) {
+    //         console.log("status 200 ok")
+    //       }
+    //       if (err.status === 404) {
+    //         console.log("status 404 not found")
+    //       }
+    //     }
+    //     return throwError(err);
+    //   }),
+    // );
   }
 }

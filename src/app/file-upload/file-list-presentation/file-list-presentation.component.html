@@ -1,1 +1,16 @@
-<p>file-list-presentation works!</p>
+<div class="container">
+    <table class="table">
+        <thead>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Type</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let filedata of fileList">
+                <td>{{filedata.name}}</td>
+                <td>{{filedata.size}} mb</td>
+                <td>{{filedata.type}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

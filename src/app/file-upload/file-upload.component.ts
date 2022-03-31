@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 import { MyFile } from './File.modal';
 import { FilesService } from './files.service';
 
@@ -9,15 +10,22 @@ import { FilesService } from './files.service';
 })
 export class FileUploadComponent implements OnInit {
 
-  constructor(private fileService: FilesService) { }
+  /** user list data */
+  public filesList$: Observable<MyFile[]>
+
+  constructor(private fileService: FilesService) { 
+    this.filesList$ = new Observable<MyFile[]>();
+  }
 
   ngOnInit(): void {
+    this.filesList$ = this.fileService.getAllFiles();
   }
 
   UploadFile(file: MyFile) {
     this.fileService.addFile(file).subscribe({
       next: () => {
         alert("File Added");
+        this.filesList$ = this.fileService.getAllFiles();
       },
       error: (e) => { console.log(e) }
     })

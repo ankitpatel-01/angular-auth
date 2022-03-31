@@ -12,9 +12,9 @@ export class FilesService {
     private http: HttpClient
   ) { }
 
-  // getUsers(): Observable<User[]> {
-  //   return this.http.get<User[]>(this.apiUrl);
-  // }
+  getAllFiles(): Observable<MyFile[]> {
+    return this.http.get<MyFile[]>(this.apiUrl);
+  }
 
   // deleteUser(id: number) {
   //   return this.http.delete(`${this.apiUrl}/${id}`);

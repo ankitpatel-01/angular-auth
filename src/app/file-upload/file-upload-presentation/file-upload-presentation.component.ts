@@ -37,7 +37,7 @@ export class FileUploadPresentationComponent implements OnInit {
       this._fileUploadPrensenter.uploadFile(this.file)
     }
     else {
-      console.log("No file seleted");
+      alert("No File is Selected")
     }
   }
 }

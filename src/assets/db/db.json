@@ -9,35 +9,54 @@
           "name": "Ankit patel",
           "age": 21,
           "gender": "male",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 2,
           "name": "Aman patel",
           "age": 21,
           "gender": "male",
-          "hobbies": ["chess", "anime", "tennies"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "tennies"
+          ]
         },
         {
           "id": 3,
           "name": "abhishek patel",
           "age": 21,
           "gender": "male",
-          "hobbies": ["chess", "anime", "cube"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "cube"
+          ]
         },
         {
           "id": 4,
           "name": "aayushi parmar",
           "age": 21,
           "gender": "female",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 5,
           "name": "Ritu Malviya",
           "age": 21,
           "gender": "female",
-          "hobbies": ["dance", "art"]
+          "hobbies": [
+            "dance",
+            "art"
+          ]
         }
       ]
     },
@@ -50,49 +69,77 @@
           "name": "jay patel",
           "age": 26,
           "gender": "male",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 2,
           "name": "aman patel",
           "age": 21,
           "gender": "male",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 3,
           "name": "abhishek patel",
           "age": 21,
           "gender": "male",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 4,
           "name": "aayushi parmar",
           "age": 21,
           "gender": "female",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 5,
           "name": "aayushi parmar",
           "age": 21,
           "gender": "female",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 6,
           "name": "aayushi parmar",
           "age": 21,
           "gender": "female",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         },
         {
           "id": 7,
           "name": "aayushi parmar",
           "age": 21,
           "gender": "female",
-          "hobbies": ["chess", "anime", "vollyball"]
+          "hobbies": [
+            "chess",
+            "anime",
+            "vollyball"
+          ]
         }
       ]
     }
@@ -177,5 +224,36 @@
       "id": 13
     }
   ],
-  "files": []
+  "files": [
+    {
+      "name": "Ui ans 3.pdf",
+      "size": 1,
+      "type": "application/pdf",
+      "id": 1
+    },
+    {
+      "name": "angular ans 3.pdf",
+      "size": 2,
+      "type": "application/pdf",
+      "id": 2
+    },
+    {
+      "name": "icomoon (5).zip",
+      "size": 0,
+      "type": "application/x-zip-compressed",
+      "id": 3
+    },
+    {
+      "name": "avatar..png",
+      "size": 0,
+      "type": "image/png",
+      "id": 4
+    },
+    {
+      "name": "graduation 1 (1).svg",
+      "size": 0,
+      "type": "image/svg+xml",
+      "id": 5
+    }
+  ]
 }

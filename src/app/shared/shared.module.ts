@@ -4,6 +4,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { SearchPipe } from './pipes/search.pipe';
 import { CounterInputComponent } from './components/counter-input/counter-input.component';
 import { FormsModule } from '@angular/forms';
+import { SortDirective } from './directives/sort.directive';
+import { FiledropzoneDirective } from './directives/filedropzone.directive';
 
 
 
@@ -11,7 +13,9 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     PaginationComponent,
     SearchPipe,
-    CounterInputComponent
+    CounterInputComponent,
+    SortDirective,
+    FiledropzoneDirective
   ],
   imports: [
     CommonModule,
@@ -20,7 +24,9 @@ import { FormsModule } from '@angular/forms';
   exports:[
     PaginationComponent,
     SearchPipe,
-    CounterInputComponent
+    CounterInputComponent,
+    SortDirective,
+    FiledropzoneDirective
   ]
 })
 export class SharedModule { }

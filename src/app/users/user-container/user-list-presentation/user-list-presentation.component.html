@@ -8,17 +8,17 @@
 
 
   <div class="mt-4">
-    <table class="table border">
+    <table class="table border"  *ngIf="pageOfItems">
       <thead>
         <tr>
-          <th scope="col">User Id</th>
-          <th scope="col">Name</th>
-          <th scope="col">Age</th>
-          <th scope="col">Gender</th>
+          <th [appSort]="pageOfItems" data-order="dsc" data-name="id" scope="col">User Id</th>
+          <th [appSort]="pageOfItems" data-order="dsc" data-name="name" scope="col">Name</th>
+          <th [appSort]="pageOfItems" data-order="dsc" data-name="age" scope="col">Age</th>
+          <th [appSort]="pageOfItems" data-order="dsc" data-name="gender" scope="col">Gender</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
-      <tbody *ngIf="pageOfItems">
+      <tbody>
         <tr class="align-middle" *ngFor="let item of pageOfItems;">
           <td>{{ item.id }}</td>
           <td>{{ item.name }}</td>
@@ -32,6 +32,7 @@
       </tbody>
     </table>
 
-    <app-pagination [items]="userList | search: [search.value, age.value]: ['name','age']" (changePage)="onChangePage($event)"></app-pagination>
+    <app-pagination [items]="userList | search: [search.value, age.value]: ['name','age']"
+      (changePage)="onChangePage($event)"></app-pagination>
   </div>
 </div>

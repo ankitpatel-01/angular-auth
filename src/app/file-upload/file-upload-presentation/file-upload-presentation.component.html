@@ -1,0 +1,5 @@
+<div appFiledropzone class="container border rounded-3 mt-5 p-5" (readFile)="readFile($event)">
+    <input type="file" name="" id="" (change)="readFile($event.target)">
+    <button type="button" (click)="uploadFile()">Upload</button>
+    <p *ngIf="file">{{file.name}} File is Ready to Upload</p>
+</div>

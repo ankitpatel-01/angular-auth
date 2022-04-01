@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { FileUploadPresenterService } from '../file-upload-presenter/file-upload-presenter.service';
 import { MyFile } from '../File.modal';
 
@@ -12,14 +13,20 @@ import { MyFile } from '../File.modal';
 export class FileUploadPresentationComponent implements OnInit {
 
   public file: File;
+  public dateForm: FormGroup;
 
-  @Output() fileToUpload:EventEmitter<MyFile>;
+  public startDate: string;
+  public endDate: string;
+
+
+  @Output() fileToUpload: EventEmitter<MyFile>;
 
   constructor(private _fileUploadPrensenter: FileUploadPresenterService) {
     this.fileToUpload = new EventEmitter<MyFile>();
-   }
+  }
 
   ngOnInit(): void {
+    this.dateForm = this._fileUploadPrensenter.buildDateForm();
     this._fileUploadPrensenter.fileToUpload$.subscribe({
       next: (file) => {
         this.fileToUpload.emit(file);
@@ -39,5 +46,13 @@ export class FileUploadPresentationComponent implements OnInit {
     else {
       alert("No File is Selected")
     }
+  }
+
+  readStartDate(input:any){
+    this.startDate = input.target.value;
+  }
+
+  readendDate(input:any){
+    this.endDate = input.target.value;
   }
 }

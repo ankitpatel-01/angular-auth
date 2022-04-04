@@ -1,2 +1,4 @@
+<!-- file drage and drop component -->
 <app-file-upload-presentation (fileToUpload)="UploadFile($event)"></app-file-upload-presentation>
-<app-file-list-presentation [fileList]="filesList$ | async"></app-file-list-presentation>
+<!-- file list table component  -->
+<app-file-list-presentation [fileList]="filesList$ | async" (deleteId)="deteleFile($event)"></app-file-list-presentation>

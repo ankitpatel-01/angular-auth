@@ -8,7 +8,7 @@ import { FileListPresentationComponent } from './file-list-presentation/file-lis
 import { HttpClientModule } from '@angular/common/http';
 import { FilesService } from './files.service';
 import { SharedModule } from '../shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FileUploadRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     SharedModule
   ],

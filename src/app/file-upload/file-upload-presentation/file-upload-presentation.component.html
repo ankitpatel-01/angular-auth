@@ -1,17 +1,21 @@
 <div appFiledropzone
-    class="container border rounded-3 mt-5 p-5 d-flex flex-column align-items-center justify-content-center"
+    class="container border border-3 rounded-3 mt-5 p-5 d-flex flex-column align-items-center justify-content-center"
     (readFile)="readFile($event)">
-    <input type="file" name="" id="" (change)="readFile($event.target)">
-    <button type="button" (click)="uploadFile()">Upload</button>
+    <div class="input-group mb-3">
+        <input type="file" class="form-control invisible" id="fileUploader" [formControl]="fileInput"  (change)="readFile($event.target)">
+    </div>
+    <label for="fileUploader"><span class="btn btn-primary">Select A file</span></label>
+    <button type="button" class="btn btn-primary mt-4" (click)="uploadFile()">Upload</button>
     <p *ngIf="file">{{file.name}} File is Ready to Upload</p>
 </div>
 
-<div class="container border rounded-3 mt-5 p-5">
+<div class="container border rounded-3 mt-5 p-3">
+    <p>Start and end date picker</p>
     <form [formGroup]="dateForm">
         <label for="fromDate">From:</label>
-        <input type="date" id="fromDate" formControlName="fromDate" (change)="readStartDate($event)" max="{{endDate}}">
+        <input type="date" id="fromDate" formControlName="fromDate" (change)="readStartDate($event.target)" max="{{endDate}}">
 
         <label class="ms-4" for="toDate">To:</label>
-        <input type="date" id="toDate" formArrayName="toDate" (change)="readendDate($event)" min="{{startDate}}">
+        <input type="date" id="toDate" formArrayName="toDate" (change)="readendDate($event.target)" min="{{startDate}}">
     </form>
 </div>

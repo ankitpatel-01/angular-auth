@@ -1,15 +1,22 @@
+<!-- //file list  -->
 <div class="container">
-    <table class="table">
+    <table class="table caption-top">
+        <caption>File List</caption>
         <thead>
             <th>Name</th>
             <th>Size</th>
             <th>Type</th>
+            <th>Action</th>
         </thead>
         <tbody>
             <tr *ngFor="let filedata of fileList">
                 <td>{{filedata.name}}</td>
-                <td>{{filedata.size}} mb</td>
+                <td>{{filedata.size}} kb</td>
                 <td>{{filedata.type}}</td>
+                <td><button type="button" class="btn btn-outline-primary" (click)="viewFile(filedata.type,filedata.content)">View</button>
+                    <button type="button" class="btn btn-outline-danger ms-3" (click)="deleteFile(filedata.id)">Delete</button>
+                </td>
+
             </tr>
         </tbody>
     </table>

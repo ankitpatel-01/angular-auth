@@ -32,7 +32,7 @@ export class FileUploadComponent implements OnInit {
           return el.name === file.name
         })
         if (isFile) {
-          alert("File with same name already exist.")
+          alert(`${file.name} already exist.`)
         }
         else {
           this.addFile(file);

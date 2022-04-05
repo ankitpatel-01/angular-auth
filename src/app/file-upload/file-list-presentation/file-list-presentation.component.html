@@ -11,7 +11,7 @@
         <tbody>
             <tr *ngFor="let filedata of fileList">
                 <td>{{filedata.name}}</td>
-                <td>{{filedata.size}} kb</td>
+                <td>{{filedata.size/1024 | number:'1.1-2'}} kb</td>
                 <td>{{filedata.type}}</td>
                 <td><button type="button" class="btn btn-outline-primary" (click)="viewFile(filedata.type,filedata.content)">View</button>
                     <button type="button" class="btn btn-outline-danger ms-3" (click)="deleteFile(filedata.id)">Delete</button>

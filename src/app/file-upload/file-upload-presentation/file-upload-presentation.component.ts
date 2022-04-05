@@ -12,7 +12,7 @@ import { MyFile } from '../File.model';
 })
 export class FileUploadPresentationComponent implements OnInit {
 
-  public file: File;
+  public files: File[];
   public dateForm: FormGroup;
 
   public startDate: string;
@@ -24,6 +24,7 @@ export class FileUploadPresentationComponent implements OnInit {
   @Output() fileToUpload: EventEmitter<MyFile>;
 
   constructor(private _fileUploadPrensenter: FileUploadPresenterService) {
+    this.files = [];
     this.fileToUpload = new EventEmitter<MyFile>();
     this.fileInput = new FormControl(null);
   }
@@ -32,21 +33,21 @@ export class FileUploadPresentationComponent implements OnInit {
     this.dateForm = this._fileUploadPrensenter.buildDateForm();
     this._fileUploadPrensenter.fileToUpload$.subscribe({
       next: (file) => {
+        console.log(file)
         this.fileToUpload.emit(file);
+        this.files = [];
       },
       error: (e) => { console.log(e) }
     })
   }
 
   readFile(files: any) {
-    this.file = files.files[0];
-    this.fileInput.reset();
+    this.files = Array.from(files.files);
   }
 
   uploadFile() {
-    if (this.file) {
-      this._fileUploadPrensenter.uploadFile(this.file)
-      this.fileInput.reset();
+    if (this.files.length !== 0) {
+      this._fileUploadPrensenter.uploadFile(this.files);
     }
     else {
       alert("No File is Selected")
@@ -59,5 +60,9 @@ export class FileUploadPresentationComponent implements OnInit {
 
   readendDate(input: any) {
     this.endDate = input.value;
+  }
+
+  removeFile(index: number) {
+    this.files.splice(index, 1);
   }
 }

@@ -2,18 +2,26 @@
     class="container border border-3 rounded-3 mt-5 p-5 d-flex flex-column align-items-center justify-content-center"
     (readFile)="readFile($event)">
     <div class="input-group mb-3">
-        <input type="file" class="form-control invisible" id="fileUploader" [formControl]="fileInput"  (change)="readFile($event.target)">
+        <input type="file" class="form-control invisible" id="fileUploader" [formControl]="fileInput"
+            (change)="readFile($event.target)" multiple>
     </div>
     <label for="fileUploader"><span class="btn btn-primary">Select A file</span></label>
     <button type="button" class="btn btn-primary mt-4" (click)="uploadFile()">Upload</button>
-    <p *ngIf="file">{{file.name}} File is Ready to Upload</p>
+    <div *ngIf="files.length !== 0" class="d-flex flex-column">
+        There are files to upload
+        <span *ngFor="let file of files; index as i" class="badge rounded-pill bg-info text-dark p-2 mb-1">{{file.name}}
+            <button class="btn badge rounded-pill bg-danger p-2 ms-2 pointer" (click)="removeFile(i)">X</button></span>
+    </div>
+    <div *ngIf="files.length === 0">There are NO files to upload</div>
+
 </div>
 
 <div class="container border rounded-3 mt-5 p-3">
     <p>Start and end date picker</p>
     <form [formGroup]="dateForm">
         <label for="fromDate">From:</label>
-        <input type="date" id="fromDate" formControlName="fromDate" (change)="readStartDate($event.target)" max="{{endDate}}">
+        <input type="date" id="fromDate" formControlName="fromDate" (change)="readStartDate($event.target)"
+            max="{{endDate}}">
 
         <label class="ms-4" for="toDate">To:</label>
         <input type="date" id="toDate" formArrayName="toDate" (change)="readendDate($event.target)" min="{{startDate}}">

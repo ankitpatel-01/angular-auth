@@ -28,7 +28,8 @@ const routes: Routes = [
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
     canActivate: [AuthGuard]
   },
-  { path: 'fileUpload', loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule) }
+  { path: 'fileUpload', loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule) },
+  { path: 'product', loadChildren: () => import('./product/product.module').then(m => m.ProductModule) }
 ];
 
 @NgModule({

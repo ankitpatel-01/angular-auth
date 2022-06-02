@@ -1,0 +1,33 @@
+<div class="container">
+    <form [formGroup]="patientFormGroup">
+        <div class="mb-3">
+            <label for="patientMobileNumber" class="form-label">Mobile Number</label>
+            <input type="text" class="form-control" id="patientMobileNumber" placeholder="Mobile Number"
+                formControlName="patientMobileNumber" (ngModelChange)="onMobileNumberChange($event)"
+                (keydown.backspace)="restForm()">
+        </div>
+        <div class="mb-3">
+            <label for="patientEmail" class="form-label">Email</label>
+            <input type="text" class="form-control" id="patientEmail" placeholder="Email"
+                formControlName="patientEmailId">
+        </div>
+        <div class="mb-3">
+            <label for="patientDiseases" class="form-label">patient Diseases</label>
+            <br>
+            <span id="patientDiseases">{{patientDetails?.diseases}}</span>
+        </div>
+        <div class="mt-3">
+            <label for="diseases">Diseases:</label>
+            <ng-select [items]="diseaseList" bindLabel="name" bindValue="id" [multiple]="true" (change)="onDiseaseSelectionChange($event)">
+            </ng-select>
+        </div>
+    </form>
+
+    <form>
+        <div class="mt-3">
+            <label for="diseases">Medicene:</label>
+            <ng-select [items]="mediceneList" bindLabel="name" bindValue="id">
+            </ng-select>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,1 @@
+<app-create-prescription-presentation (patientNumber)="getPatientDetails($event)" (fetchDiseases)="fetchDiseases()" (fetchMedicines)="fetchMedicines($event)" [patientDetails]="patientDetails$ |async" [diseaseList]="diseases$ | async" [mediceneList]="medicines$ | async"></app-create-prescription-presentation>

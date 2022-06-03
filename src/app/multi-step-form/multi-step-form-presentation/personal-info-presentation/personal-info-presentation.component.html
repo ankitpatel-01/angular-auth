@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>PersonalInfo</h2>
+    <form [formGroup]="personalInfoForm">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">firstName</label>
+            <input type="text" class="form-control" id="firstName" placeholder="firstName"
+                formControlName="firstName">
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">lastName</label>
+            <input type="text" class="form-control" id="lastName" placeholder="lastName"
+                formControlName="lastName">
+        </div>
+        <button type="button" class="btn btn-primary" [disabled]="!personalInfoForm.valid" (click)="doChangeStep()">Next</button>
+    </form>
+</div>

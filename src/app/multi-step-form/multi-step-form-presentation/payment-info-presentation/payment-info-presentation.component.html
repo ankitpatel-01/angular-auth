@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Payment Form</h2>
+    <form [formGroup]="paymentInfoForm">
+        <div class="mb-3">
+            <label for="cardNumber" class="form-label">cardNumber</label>
+            <input type="text" class="form-control" id="cardNumber" placeholder="cardNumber"
+                formControlName="cardNumber">
+        </div>
+        <div class="mb-3">
+            <label for="cvv" class="form-label">CVV</label>
+            <input type="text" class="form-control" id="cvv" placeholder="cvv"
+                formControlName="cvv">
+        </div>
+        <button type="button" class="btn btn-secondary" (click)="doChangeStep('back')">Back</button>
+        <button type="button" class="btn btn-success" [disabled]="!paymentInfoForm.valid" (click)="doChangeStep('forward')">Submit</button>
+    </form>
+</div>
+

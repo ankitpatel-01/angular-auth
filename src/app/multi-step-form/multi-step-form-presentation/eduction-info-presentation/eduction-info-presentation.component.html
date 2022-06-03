@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>EducationInfo</h2>
+    <form [formGroup]="educationInfoForm">
+        <div class="mb-3">
+            <label for="CollageName" class="form-label">Collage Name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="CollageName"
+                formControlName="CollageName">
+        </div>
+        <div class="mb-3">
+            <label for="CGPA" class="form-label">CGPA</label>
+            <input type="text" class="form-control" id="lastName" placeholder="CGPA"
+                formControlName="CGPA">
+        </div>
+        <button type="button" class="btn btn-secondary" (click)="doChangeStep('back')">Back</button>
+        <button type="button" class="btn btn-success" [disabled]="!educationInfoForm.valid" (click)="doChangeStep('forward')">Next</button>
+    </form>
+</div>

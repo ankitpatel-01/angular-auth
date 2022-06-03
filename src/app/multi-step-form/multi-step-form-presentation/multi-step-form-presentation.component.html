@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <ol>
+        <li *ngFor="let step of steps" [ngClass]="step['isActive']? 'active' : ''">
+          <div class="circle"><span>{{step.index}}</span></div>
+          <p>{{step.name}}</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<ng-container [ngSwitch]="currentStep$ | async">
+  <app-personal-info-presentation *ngSwitchCase="1" [startingForm]="userForm.get('personalInfo')?.value"
+    (subformInitialized)="subformInitialized('personalInfo', $event)"
+    (changeStep)="changeStep(1, $event)">
+  </app-personal-info-presentation>
+  <app-eduction-info-presentation *ngSwitchCase="2" [startingForm]="userForm.get('educationInfoForm')?.value"
+    (subformInitialized)="subformInitialized('educationInfoForm', $event)"
+    (changeStep)="changeStep(2, $event)">
+  </app-eduction-info-presentation>
+  <app-payment-info-presentation *ngSwitchCase="3" [startingForm]="userForm.get('paymentInfoForm')?.value"
+    (subformInitialized)="subformInitialized('paymentInfoForm', $event)"
+    (changeStep)="changeStep(3, $event)"
+    (onSubmitEmit)="onSubmit()">
+  </app-payment-info-presentation>
+</ng-container>
+
+<div>
+  {{userForm.value | json}}
+</div>

@@ -29,7 +29,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { path: 'fileUpload', loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule) },
-  { path: 'create-prescription', loadChildren: () => import('./create-prescription/create-prescription.module').then(m => m.CreatePrescriptionModule) }
+  { path: 'create-prescription', loadChildren: () => import('./create-prescription/create-prescription.module').then(m => m.CreatePrescriptionModule) },
+  { path: 'multi-step-form', loadChildren: () => import('./multi-step-form/multi-step-form.module').then(m => m.MultiStepFormModule) }
 ];
 
 @NgModule({

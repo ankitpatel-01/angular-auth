@@ -17,8 +17,8 @@ export class CreatePrescriptionPresentationComponent implements OnInit {
   }
   @Input() public set diseaseList(data: any) {
     if (data) {
-      console.log(data)
-      this._diseaseList = data;
+      console.log(data.response)
+      this._diseaseList = data.response;
     }
   }
 
@@ -27,8 +27,8 @@ export class CreatePrescriptionPresentationComponent implements OnInit {
   }
   @Input() public set mediceneList(data: any) {
     if (data) {
-      console.log(data)
-      this._mediceneList = data;
+      console.log(data.response)
+      this._mediceneList = data.response;
     }
   }
 
@@ -39,9 +39,9 @@ export class CreatePrescriptionPresentationComponent implements OnInit {
   }
   @Input() public set patientDetails(value: any) {
     if (value) {
-      this._patientDetails = value;
+      this._patientDetails = value.response;
       console.log(this._patientDetails)
-      this.patientFormGroup.patchValue({ patientEmailId: value.email });
+      this.patientFormGroup.patchValue({ patientEmailId: this._patientDetails.email });
     }
    
   }
@@ -49,6 +49,7 @@ export class CreatePrescriptionPresentationComponent implements OnInit {
 
   public patientFormGroup!: FormGroup;
   public medicineFormGroup: FormGroup;
+  public timings :any;
 
   private _patientDetails: any;
   private _diseaseList: any;
@@ -66,7 +67,9 @@ export class CreatePrescriptionPresentationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.patientFormGroup = this._presenter.createPatientForm()
+    this.patientFormGroup = this._presenter.createPatientForm();
+    this.medicineFormGroup = this._presenter.mediceneForm();
+    this.timings = this._presenter.getTimings;
   }
 
   onMobileNumberChange(number: string) {
@@ -79,6 +82,12 @@ export class CreatePrescriptionPresentationComponent implements OnInit {
   onDiseaseSelectionChange(diseases:any){
     this._selectedDiseaseIds = diseases.map((disease:any) => disease.id);
     this.gofetchMedicines(this._selectedDiseaseIds);
+  }
+
+  public onDosageTimingChange(event: Event): void {
+    let input = event.target as HTMLInputElement
+    this.timings[parseInt(input.value)].selected = input.checked;
+    console.log(this.timings)
   }
 
   restForm(){

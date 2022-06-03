@@ -23,11 +23,44 @@
         </div>
     </form>
 
-    <form>
+    <form [formGroup]="medicineFormGroup">
         <div class="mt-3">
             <label for="diseases">Medicene:</label>
-            <ng-select [items]="mediceneList" bindLabel="name" bindValue="id">
+            <ng-select [items]="mediceneList" bindLabel="name" bindValue="id" formControlName="medicineId" [multiple]="true">
             </ng-select>
         </div>
+        <div class="mb-3">
+            <label for="medicineDosage" class="form-label">Medicine Dosage</label>
+            <input type="number" class="form-control" id="medicineDosage" placeholder="Medicine Dosage"
+                formControlName="medicineDosage" (ngModelChange)="onMobileNumberChange($event)"
+                (keydown.backspace)="restForm()">
+        </div>
+        <div class="mb-3">
+            <label for="medicineDays" class="form-label">Day</label>
+            <input type="number" class="form-control" id="medicineDays" placeholder="Day"
+                formControlName="medicineDays">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="afterBeforeMeal" id="after" [value]="true" formControlName="afterBeforeMeal">
+            <label class="form-check-label" for="after">
+              After
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="afterBeforeMeal" id="befor" [value]="false" formControlName="afterBeforeMeal">
+            <label class="form-check-label" for="befor">
+              Befor
+            </label>
+          </div>
+          <div *ngFor="let timing of timings; let i=index" class="col-md-2" formArrayName="medicineTiming">
+            <label>
+              <input type="checkbox" [value]="timing.id" [formControlName]='i' (change)="onDosageTimingChange($event)" [checked]="timing.selected">
+              {{timing.value}}
+            </label>
+          </div>
     </form>
+
+    <div>
+        {{medicineFormGroup.value | json}}
+    </div>
 </div>

@@ -6,6 +6,8 @@ import { CounterInputComponent } from './components/counter-input/counter-input.
 import { FormsModule } from '@angular/forms';
 import { SortDirective } from './directives/sort.directive';
 import { FiledropzoneDirective } from './directives/filedropzone.directive';
+import { TabsetComponent } from './components/tabset/tabset.component';
+import { TabsComponent } from './components/tabset/tabs/tabs.component';
 
 
 
@@ -15,7 +17,9 @@ import { FiledropzoneDirective } from './directives/filedropzone.directive';
     SearchPipe,
     CounterInputComponent,
     SortDirective,
-    FiledropzoneDirective
+    FiledropzoneDirective,
+    TabsetComponent,
+    TabsComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +30,9 @@ import { FiledropzoneDirective } from './directives/filedropzone.directive';
     SearchPipe,
     CounterInputComponent,
     SortDirective,
-    FiledropzoneDirective
+    FiledropzoneDirective,
+    TabsetComponent,
+    TabsComponent
   ]
 })
 export class SharedModule { }

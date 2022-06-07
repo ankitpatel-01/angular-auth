@@ -1,0 +1,6 @@
+<div>
+    <ul class="nav nav-tabs">
+        <li class="nav-link" *ngFor="let tab of tabs" [ngClass]="{'active': tab.active === true }" (click)="selectTab(tab)">{{tab.tabTitle}}</li>
+    </ul>
+    <ng-content></ng-content>
+</div>
